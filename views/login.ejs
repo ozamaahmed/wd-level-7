@@ -10,7 +10,7 @@
     <title><%=title%></title>
 </head>
 <body>
-    <div class="grid grid-cols-6">
+    <div class="grid grid-cols-6 my-10">
         <div class="col-start-3 col-span-2">
             <%- include('header.ejs') %>
             <h6 class="py-4">Login to your account</h6>
@@ -23,11 +23,11 @@
             </div>
             <form action="/session" method="post">
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
-                <div class="py-5">
+                <div class="py-5 my-2">
                     <label for="email">emailID: </label>
                     <input id="email" type="email" name="email" class="border border-color-300 text-gray-900 rounded p-2 w-full">
                 </div>
-                <div class="py-5">
+                <div class="py-5 my-2">
                     <label for="password">Your Password : </label>
                     <input id="password" type="password" name="password" class="border border-color-300 text-gray-900 rounded p-2 w-full">
                 </div>
