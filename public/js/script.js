@@ -1,1 +1,2 @@
-console.log("js file inside a public folderrrr");
+console.log("Let us check inside this Static File ");
+console.log("I am inside Public Folder ");
