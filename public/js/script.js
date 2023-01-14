@@ -1,1 +1,1 @@
-console.log("js file inside a public folder");
+console.log("js file inside a public folderrrr");
