@@ -8,9 +8,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
       User.hasMany(models.Todo, {
-        foreignKey: "userID",
+        foreignKey: "userId",
       });
     }
   }
@@ -21,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: true,
+          len: {
+            args: 1,
+            msg: "First Name cannot be empty",
+          },
         },
       },
       lastName: DataTypes.STRING,
@@ -28,16 +31,17 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notNull: true,
+          isEmail: {
+            args: true,
+            msg: "Not valid email",
+          },
+        },
+        unique: {
+          args: true,
+          msg: "Email address already in use!",
         },
       },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notNull: true,
-        },
-      },
+      password: DataTypes.STRING,
     },
     {
       sequelize,
